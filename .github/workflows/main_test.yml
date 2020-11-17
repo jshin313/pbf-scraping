@@ -43,7 +43,7 @@ jobs:
           echo "name=scrape_date" >> $(date +%Y-%m-%d -d '1 day ago');
         fi
 
-        if [[ "${{ github.event_name }}" -eq "workflow_dispatch" ]]; then
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           # echo '::set-env name=email::'"${{ github.event.inputs.email }}";
           echo "name=email" >> $github.event.inputs.email;
         else
